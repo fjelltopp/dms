@@ -1,3 +1,6 @@
 [submodule "ckan"]
 	path = ckan
 	url = git@github.com:ckan/ckan.git
+[submodule "ckanext-dms"]
+	path = ckanext-dms
+	url = git@github.com:fjelltopp/ckanext-dms.git
