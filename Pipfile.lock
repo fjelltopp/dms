@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "fadf2ab2c6bfdaa4c9c9f6c546d3f3172f218710f75ae98e41c1c482cc179a77"
+            "sha256": "f2a4ea289e0856a1504bcc5b9a9be2e1cf2376a88379ef522585a1e67351dda7"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -72,6 +72,10 @@
         "ckan": {
             "editable": true,
             "path": "./ckan"
+        },
+        "ckanext-dms": {
+            "editable": true,
+            "path": "./ckanext-dms"
         },
         "click": {
             "hashes": [
