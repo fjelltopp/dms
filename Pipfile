@@ -36,9 +36,10 @@ Markdown = "==3.3.4"
 PyUtilib = "==6.0.0"
 PyYAML = "==5.4.1"
 SQLAlchemy = "==1.3.5"
-Werkzeug = {version = "==1.0.1", extras = ["watchdog"]}
-ckan = {editable = true, path = "./ckan"}
-ckanext-dms = {editable = true, path = "./ckanext-dms"}
+Werkzeug = {version = "==1.0.1",extras = ["watchdog"]}
+ckan = {path = "./ckan",editable = true}
+ckanext-dms = {path = "./ckanext-dms",editable = true}
+uWSGI = "==2.0.19.1"
 
 [dev-packages]
 beautifulsoup4 = "==4.9.1"
