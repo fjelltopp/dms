@@ -4,9 +4,6 @@
 [submodule "ckanext-dms"]
 	path = ckanext-dms
 	url = git@github.com:fjelltopp/ckanext-dms.git
-[submodule "dms-utils"]
-	path = dms-utils
-	url = git@github.com:fjelltopp/dms-utils.git
 [submodule "fjelltopp-ckan-infrastructure"]
 	path = fjelltopp-ckan-infrastructure
 	url = git@github.com:fjelltopp/fjelltopp-ckan-infrastructure.git
