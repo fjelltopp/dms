@@ -7,15 +7,16 @@ import ckanapi
 
 import csv
 
-CONFIG = os.path.join(os.path.dirname(os.path.abspath(__file__)), './config.json')
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), './config.json')
 
-with open(CONFIG, 'r') as config_file:
-    config = json.loads(config_file)['config']
+with open(CONFIG_PATH, 'r') as config_file:
+    CONFIG = json.loads(config_file.read())['config']
 
-DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), config['data_path'])
+DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG['data_path'])
 USERS_FILE = os.path.join(DATA_PATH, 'users.json')
 ORGANIZATIONS_FILE = os.path.join(DATA_PATH, 'organizations.json')
-DOCUMENTS_FILE = os.path.join(DATA_PATH, 'Malawi legacy repository document metadata - Document metadata.csv')
+DOCUMENTS_FILE = os.path.join(DATA_PATH, CONFIG['documents_file'])
+RESOURCE_FOLDER = os.path.join(DATA_PATH, 'files/cha_data/uploads')
 
 log = logging.getLogger(__name__)
 
@@ -112,9 +113,19 @@ def load_resources(ckan, documents):
     :return: None
     """
     for document in documents:
-        resource_dict = {'title': document['title'], 'name': document['name'], 'year': document['year'],
-                         'url': 'upload', 'notes': 'Demo resource', 'package_id': document['name']}
-        with open(os.path.join(DATA_PATH, document['file']), 'rb') as res_file:
+        resource_dict = {
+            'title': document['title'],
+            'name': document['name'],
+            'year': document['year'],
+            'url': 'upload',
+            'notes': 'Demo resource',
+            'package_id': document['name']
+        }
+
+        file_id = document['file'].split('.')[0]
+        file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
+
+        with open(file_path, 'rb') as res_file:
             ckan.call_action(
                 'resource_create',
                 resource_dict,
@@ -122,8 +133,8 @@ def load_resources(ckan, documents):
             )
 
 
-def load_data(ckan_url, apikey):
-    ckan = ckanapi.RemoteCKAN(ckan_url, apikey=apikey)
+def load_data(ckan_url, ckan_api_key):
+    ckan = ckanapi.RemoteCKAN(ckan_url, apikey=ckan_api_key)
 
     with open(DOCUMENTS_FILE) as csvfile:
         metadata_reader = csv.reader(csvfile)
@@ -158,4 +169,4 @@ def _create_name(title):
 
 
 if __name__ == '__main__':
-    load_data(ckan_url=config['ckan_url'], apikey=config['api_key'])
+    load_data(ckan_url=CONFIG['ckan_url'], ckan_api_key=CONFIG['ckan_api_key'])
