@@ -143,18 +143,11 @@ def load_groups(ckan, documents):
     """
     group_ids_dict = {}
 
-    group_datasets = {}
-    for document in documents:
-        collection = group_datasets.get(document['category'], [])
-        collection.append({"name": document['name']})
-        group_datasets[document['category']] = collection
-
     with open(GROUPS_FILE, 'r') as groups_file:
         groups = json.load(groups_file)['groups']
 
         for group in groups:
             group_name = group['name']
-            #group['packages'] = group_datasets[group_name]
             try:
                 org = ckan.action.group_create(**group)
                 log.info(f"Created group {group_name}")
