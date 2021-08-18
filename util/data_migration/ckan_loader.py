@@ -136,6 +136,22 @@ def load_resources(ckan, documents):
 def load_data(ckan_url, ckan_api_key):
     ckan = ckanapi.RemoteCKAN(ckan_url, apikey=ckan_api_key)
 
+    documents = _load_documents()
+
+    load_users(ckan)
+    orgs = load_organizations(ckan)
+    load_datasets(ckan, documents)
+    load_resources(ckan, documents)
+
+
+def _create_name(title):
+    name = re.sub('[^a-zA-Z0-9_ ]', '', title)
+    name = re.sub('[_ ]', '-', name)
+    name = name.lower()
+    return name
+
+
+def _load_documents():
     with open(DOCUMENTS_FILE) as csvfile:
         metadata_reader = csv.reader(csvfile)
         start_table = False
@@ -154,18 +170,7 @@ def load_data(ckan_url, ckan_api_key):
                 documents.append(document)
             if row[1] == 'logi_id':
                 start_table = True
-
-    load_users(ckan)
-    orgs = load_organizations(ckan)
-    load_datasets(ckan, documents)
-    load_resources(ckan, documents)
-
-
-def _create_name(title):
-    name = re.sub('[^a-zA-Z0-9_ ]', '', title)
-    name = re.sub('[_ ]', '-', name)
-    name = name.lower()
-    return name
+        return documents
 
 
 if __name__ == '__main__':
