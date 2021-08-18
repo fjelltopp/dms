@@ -1,0 +1,6 @@
+CKAN metadata,,,,,Organisation,Group,Created date,Custom Field (Year),Tags,Dataset type
+,logi_id,Title,File name,Catalog number,Program areas,1st level of doc hiererachy,Insert time,Publication year,,Data type
+,1,Test MS Word document,1.docx,51,Test Program,Guideline,17/11/2015,2015,Report,
+,2,Test PDF document,2.pdf,51,Test Program,Guideline,17/11/2015,2015,Report,
+,3,Test XLSX document,3.xlsx,51,Test Program,Publication,17/11/2015,2015,Report,
+,4,Test CSV document,4.csv,51,Test Program,Publication,17/11/2015,2015,Report,
