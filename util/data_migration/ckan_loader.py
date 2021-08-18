@@ -16,7 +16,7 @@ DATA_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG['dat
 USERS_FILE = os.path.join(DATA_PATH, 'users.json')
 ORGANIZATIONS_FILE = os.path.join(DATA_PATH, 'organizations.json')
 DOCUMENTS_FILE = os.path.join(DATA_PATH, CONFIG['documents_file'])
-RESOURCE_FOLDER = os.path.join(DATA_PATH, 'files/cha_data/uploads')
+RESOURCE_FOLDER = os.path.join(DATA_PATH, CONFIG['resource_folder'])
 
 log = logging.getLogger(__name__)
 
