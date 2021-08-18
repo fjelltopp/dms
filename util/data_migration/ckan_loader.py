@@ -90,6 +90,7 @@ def load_datasets(ckan, documents):
                 'name': document['name'],
                 'year': document['year'],
                 'owner_org': document['owner_org'],
+                'groups': [{'name': document['category']}],
                 'notes': 'Demo dataset'
             }
             ckan.action.package_create(**dataset)
@@ -141,10 +142,19 @@ def load_groups(ckan, documents):
     :return: None
     """
     group_ids_dict = {}
+
+    group_datasets = {}
+    for document in documents:
+        collection = group_datasets.get(document['category'], [])
+        collection.append({"name": document['name']})
+        group_datasets[document['category']] = collection
+
     with open(GROUPS_FILE, 'r') as groups_file:
         groups = json.load(groups_file)['groups']
+
         for group in groups:
             group_name = group['name']
+            #group['packages'] = group_datasets[group_name]
             try:
                 org = ckan.action.group_create(**group)
                 log.info(f"Created group {group_name}")
@@ -161,7 +171,6 @@ def load_groups(ckan, documents):
             except ckanapi.errors.ValidationError as e:
                 log.error(f"Can't create group {group_name}: {e.error_dict}")
 
-        
     return group_ids_dict
 
 
@@ -172,9 +181,9 @@ def load_data(ckan_url, ckan_api_key):
 
     load_users(ckan)
     orgs = load_organizations(ckan)
+    load_groups(ckan, documents)
     load_datasets(ckan, documents)
     load_resources(ckan, documents)
-    load_groups(ckan, documents)
 
 
 def _create_name(title):
@@ -196,7 +205,7 @@ def _load_documents():
                     'name': _create_name(row[2]),
                     'file': row[3],
                     'program': row[5],
-                    'category': row[6],
+                    'category': _create_name(row[6]),
                     'year': row[8],
                     'owner_org': _create_name(row[5]),
                 }
