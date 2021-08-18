@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Publication",
+      "description": "Publication group for demo purposes",
+      "image_url": "https://icons.iconarchive.com/icons/custom-icon-design/office/128/copy-icon.png",
+      "name": "publication",
+      "state": "active",
+      "title": "Publication"
+    },
+        {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Guideline",
+      "description": "Guideline group for demo purposes",
+      "image_url": "https://icons.iconarchive.com/icons/custom-icon-design/office/128/info-icon.png",
+      "name": "guideline",
+      "state": "active",
+      "title": "Guideline"
+    }
+  ]
+}

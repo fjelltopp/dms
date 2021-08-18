@@ -1,5 +1,6 @@
 /.idea
-/util/data_migration/inputs
+/util/data_migration/inputs/*
+!/util/data_migration/inputs/demo_data/
 /storage
 /webassets
 /venv
