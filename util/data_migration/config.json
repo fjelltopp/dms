@@ -5,6 +5,7 @@
 	  "organizations_file": "organizations.json",
 	  "documents_file": "Malawi legacy repository demo.csv",
 	  "ckan_url": "http://ckan.minikube",
-	  "ckan_api_key": "24bace86-4ba8-4d8b-924a-ff38f64c5ef2"
+	  "ckan_api_key": "24bace86-4ba8-4d8b-924a-ff38f64c5ef2",
+	  "resource_folder": "files/cha_data/uploads"
   }
 }
