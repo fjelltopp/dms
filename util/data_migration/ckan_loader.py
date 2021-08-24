@@ -7,7 +7,7 @@ import ckanapi
 
 import csv
 
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), './config.json')
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
 
 with open(CONFIG_PATH, 'r') as config_file:
     CONFIG = json.loads(config_file.read())['config']
@@ -20,6 +20,7 @@ GROUPS_FILE = os.path.join(DATA_PATH, CONFIG['groups_file'])
 RESOURCE_FOLDER = os.path.join(DATA_PATH, CONFIG['resource_folder'])
 
 log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
 
 
 def load_organizations(ckan):
@@ -86,12 +87,11 @@ def load_datasets(ckan, documents):
     for document in documents:
         try:
             dataset = {
-                'title': document['title'],
-                'name': document['name'],
+                'title': document['dataset'],
+                'name': document['dataset_name'],
                 'year': document['year'],
                 'owner_org': document['owner_org'],
                 'groups': [{'name': document['category']}],
-                'notes': 'Demo dataset'
             }
             ckan.action.package_create(**dataset)
             log.info(f"Created dataset {dataset['name']}")
@@ -115,24 +115,39 @@ def load_resources(ckan, documents):
     :return: None
     """
     for document in documents:
+        if len(document['file']) < 1:
+            log.warning(f"Resource {resource_dict['name']} not created as it has no file attachment")
+            continue
+
         resource_dict = {
             'title': document['title'],
             'name': document['name'],
             'year': document['year'],
             'url': 'upload',
-            'notes': 'Demo resource',
-            'package_id': document['name']
+            'package_id': document['dataset_name']
         }
 
-        file_id = document['file'].split('.')[0]
-        file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
+        try:
+            file_id = document['file'].split('.')[0]
+            file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
-        with open(file_path, 'rb') as res_file:
-            ckan.call_action(
-                'resource_create',
-                resource_dict,
-                files={'upload': res_file}
-            )
+            with open(file_path, 'rb') as res_file:
+                ckan.call_action(
+                    'resource_create',
+                    resource_dict,
+                    files={'upload': res_file}
+                )
+            log.info(f"Created resource {resource_dict['name']}")
+            continue
+        except ckanapi.errors.ValidationError as e:
+            pass  # fallback to resource update
+        try:
+            log.warning(f"Resource {resource_dict['name']} might already exists. Will try to update.")
+            id = ckan.action.resource_show(id=resource_dict['name'])['id']
+            ckan.action.resource_update(id=id, **resource_dict)
+            log.info(f"Updated resource {resource_dict['name']}")
+        except ckanapi.errors.ValidationError as e:
+            log.error(f"Can't create resource {resource_dict['name']}: {e.error_dict}")
 
 
 def load_groups(ckan, documents):
@@ -201,6 +216,8 @@ def _load_documents():
                     'category': _create_name(row[6]),
                     'year': row[8],
                     'owner_org': _create_name(row[5]),
+                    'dataset': row[10],
+                    'dataset_name': _create_name(row[10])
                 }
                 documents.append(document)
             if row[1] == 'logi_id':
