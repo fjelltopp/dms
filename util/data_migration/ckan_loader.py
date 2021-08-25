@@ -6,6 +6,7 @@ import re
 import ckanapi
 
 import csv
+import zipfile
 
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
 
@@ -127,27 +128,34 @@ def load_resources(ckan, documents):
             'package_id': document['dataset_name']
         }
 
-        try:
-            file_id = document['file'].split('.')[0]
-            file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
+        file_id = document['file'].split('.')[0]
+        file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
-            with open(file_path, 'rb') as res_file:
-                ckan.call_action(
-                    'resource_create',
-                    resource_dict,
-                    files={'upload': res_file}
-                )
-            log.info(f"Created resource {resource_dict['name']}")
-            continue
-        except ckanapi.errors.ValidationError as e:
-            pass  # fallback to resource update
-        try:
-            log.warning(f"Resource {resource_dict['name']} might already exists. Will try to update.")
-            id = ckan.action.resource_show(id=resource_dict['name'])['id']
-            ckan.action.resource_update(id=id, **resource_dict)
-            log.info(f"Updated resource {resource_dict['name']}")
-        except ckanapi.errors.ValidationError as e:
-            log.error(f"Can't create resource {resource_dict['name']}: {e.error_dict}")
+        if zipfile.is_zipfile(file_path) and os.path.splitext(file_path)[1] == '.zip':
+            pass
+        else:
+            _upload_resource(ckan, file_path, resource_dict)
+
+
+def _upload_resource(ckan, file_path, resource_dict):
+    try:
+        with open(file_path, 'rb') as res_file:
+            ckan.call_action(
+                'resource_create',
+                resource_dict,
+                files={'upload': res_file}
+            )
+        log.info(f"Created resource {resource_dict['name']}")
+        return
+    except ckanapi.errors.ValidationError as e:
+        pass  # fallback to resource update
+    try:
+        log.warning(f"Resource {resource_dict['name']} might already exists. Will try to update.")
+        id = ckan.action.resource_show(id=resource_dict['name'])['id']
+        ckan.action.resource_update(id=id, **resource_dict)
+        log.info(f"Updated resource {resource_dict['name']}")
+    except ckanapi.errors.ValidationError as e:
+        log.error(f"Can't create resource {resource_dict['name']}: {e.error_dict}")
 
 
 def load_groups(ckan, documents):
