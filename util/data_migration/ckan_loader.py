@@ -255,4 +255,9 @@ def _load_documents():
 
 
 if __name__ == '__main__':
-    load_data(ckan_url=CONFIG['ckan_url'], ckan_api_key=CONFIG['ckan_api_key'])
+    try:
+        assert CONFIG['ckan_api_key'] != ''
+        load_data(ckan_url=CONFIG['ckan_url'], ckan_api_key=CONFIG['ckan_api_key'])
+    except AssertionError as e:
+        log.error('CKAN api key missing from config.json')
+
