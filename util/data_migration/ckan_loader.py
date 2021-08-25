@@ -7,6 +7,7 @@ import ckanapi
 
 import csv
 import zipfile
+import rarfile
 import shutil
 
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config-malawi.json')
@@ -134,6 +135,8 @@ def load_resources(ckan, documents):
 
         if zipfile.is_zipfile(file_path) and os.path.splitext(file_path)[1] == '.zip':
             _unpack_zip(ckan, file_path, resource_dict)
+        elif rarfile.is_rarfile(file_path) and os.path.splitext(file_path)[1] == '.rar':
+            _unpack_rar(ckan, file_path, resource_dict)
         else:
             _upload_resource(ckan, file_path, resource_dict)
 
@@ -224,6 +227,27 @@ def _unpack_zip(ckan, file_path, resource_dict):
         with zipfile.ZipFile(file_path) as zf:
             zf.extractall(extract_folder)
             files = zf.namelist()
+            for filename in files:
+                title = os.path.splitext(filename)[0]
+                resource_dict['title'] = title
+                resource_dict['name'] = _create_name(title)
+                extracted_file_path = os.path.join(extract_folder, filename)
+                _upload_resource(ckan, extracted_file_path, resource_dict)
+    except Exception as e:
+        log.error(str(e))
+    finally:
+        shutil.rmtree(extract_folder)
+
+
+def _unpack_rar(ckan, file_path, resource_dict):
+    extract_folder = os.path.join(DATA_PATH, 'tmp')
+    if not os.path.exists(extract_folder):
+        os.makedirs(extract_folder)
+
+    try:
+        with rarfile.RarFile(file_path) as rf:
+            rf.extractall(extract_folder)
+            files = rf.namelist()
             for filename in files:
                 title = os.path.splitext(filename)[0]
                 resource_dict['title'] = title
