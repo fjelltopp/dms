@@ -7,6 +7,7 @@ import ckanapi
 
 import csv
 import zipfile
+import shutil
 
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
 
@@ -128,34 +129,13 @@ def load_resources(ckan, documents):
             'package_id': document['dataset_name']
         }
 
-        file_id = document['file'].split('.')[0]
+        file_id = os.path.splitext(document['file'])[0]
         file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
         if zipfile.is_zipfile(file_path) and os.path.splitext(file_path)[1] == '.zip':
-            pass
+            _unpack_zip(ckan, file_path, resource_dict)
         else:
             _upload_resource(ckan, file_path, resource_dict)
-
-
-def _upload_resource(ckan, file_path, resource_dict):
-    try:
-        with open(file_path, 'rb') as res_file:
-            ckan.call_action(
-                'resource_create',
-                resource_dict,
-                files={'upload': res_file}
-            )
-        log.info(f"Created resource {resource_dict['name']}")
-        return
-    except ckanapi.errors.ValidationError as e:
-        pass  # fallback to resource update
-    try:
-        log.warning(f"Resource {resource_dict['name']} might already exists. Will try to update.")
-        id = ckan.action.resource_show(id=resource_dict['name'])['id']
-        ckan.action.resource_update(id=id, **resource_dict)
-        log.info(f"Updated resource {resource_dict['name']}")
-    except ckanapi.errors.ValidationError as e:
-        log.error(f"Can't create resource {resource_dict['name']}: {e.error_dict}")
 
 
 def load_groups(ckan, documents):
@@ -208,6 +188,47 @@ def _create_name(title):
     name = name.lower()
     return name
 
+
+def _upload_resource(ckan, file_path, resource_dict):
+    try:
+        with open(file_path, 'rb') as res_file:
+            ckan.call_action(
+                'resource_create',
+                resource_dict,
+                files={'upload': res_file}
+            )
+        log.info(f"Created resource {resource_dict['name']}")
+        return
+    except ckanapi.errors.ValidationError as e:
+        pass  # fallback to resource update
+    try:
+        log.warning(f"Resource {resource_dict['name']} might already exists. Will try to update.")
+        id = ckan.action.resource_show(id=resource_dict['name'])['id']
+        ckan.action.resource_update(id=id, **resource_dict)
+        log.info(f"Updated resource {resource_dict['name']}")
+    except ckanapi.errors.ValidationError as e:
+        log.error(f"Can't create resource {resource_dict['name']}: {e.error_dict}")
+
+
+def _unpack_zip(ckan, file_path, resource_dict):
+    extract_folder = os.path.join(DATA_PATH, 'tmp')
+    if not os.path.exists(extract_folder):
+        os.makedirs(extract_folder)
+
+    try:
+        with zipfile.ZipFile(file_path) as zf:
+            zf.extractall(extract_folder)
+            files = zf.namelist()
+            for filename in files:
+                title = os.path.splitext(filename)[0]
+                resource_dict['title'] = title
+                resource_dict['name'] = _create_name(title)
+                extracted_file_path = os.path.join(extract_folder, filename)
+                _upload_resource(ckan, extracted_file_path, resource_dict)
+    except Exception as e:
+        log.error(str(e))
+    finally:
+        shutil.rmtree(extract_folder)
 
 def _load_documents():
     with open(DOCUMENTS_FILE) as csvfile:
