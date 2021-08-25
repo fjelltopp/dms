@@ -9,7 +9,7 @@ import csv
 import zipfile
 import shutil
 
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config.json')
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config-malawi.json')
 
 with open(CONFIG_PATH, 'r') as config_file:
     CONFIG = json.loads(config_file.read())['config']
@@ -89,7 +89,7 @@ def load_datasets(ckan, documents):
     for document in documents:
         try:
             dataset = {
-                'title': document['dataset'],
+                'title': _create_title(document['dataset']),
                 'name': document['dataset_name'],
                 'year': document['year'],
                 'owner_org': document['owner_org'],
@@ -189,6 +189,11 @@ def _create_name(title):
     return name
 
 
+def _create_title(title):
+    title = re.sub('[_]', ' ', title)
+    return title
+
+
 def _upload_resource(ckan, file_path, resource_dict):
     try:
         with open(file_path, 'rb') as res_file:
@@ -229,6 +234,7 @@ def _unpack_zip(ckan, file_path, resource_dict):
         log.error(str(e))
     finally:
         shutil.rmtree(extract_folder)
+
 
 def _load_documents():
     with open(DOCUMENTS_FILE) as csvfile:
