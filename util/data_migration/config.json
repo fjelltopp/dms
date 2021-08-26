@@ -6,7 +6,7 @@
 	  "groups_file": "groups.json",
 	  "documents_file": "demo_data.csv",
 	  "ckan_url": "http://ckan.minikube",
-	  "ckan_api_key": "",
+	  "ckan_api_key": "a4bf5640-e1b2-4141-8c22-f2b96b6df2c3",
 	  "resource_folder": "files"
   }
 }

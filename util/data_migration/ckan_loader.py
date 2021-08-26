@@ -10,7 +10,8 @@ import zipfile
 import rarfile
 import shutil
 
-CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'config-malawi.json')
+CONFIG_FILENAME = os.getenv('CONFIG_FILENAME', 'config.json')
+CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG_FILENAME)
 
 with open(CONFIG_PATH, 'r') as config_file:
     CONFIG = json.loads(config_file.read())['config']
