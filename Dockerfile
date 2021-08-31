@@ -6,10 +6,11 @@ ADD ckan-uwsgi.ini /etc/ckan/ckan-uwsgi.ini
 RUN rm -rf /usr/lib/ckan/*
 COPY ./ /usr/lib/ckan/
 RUN apt update && \
-    apt install pipenv uwsgi -y && \
+    apt install uwsgi -y && \
     cd /usr/lib/ckan/ && \
     rm -rf venv && mkdir .venv && \
-    pipenv install && chown -R ckan . 
+    pip install pipenv \
+    pipenv sync && chown -R ckan . 
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
