@@ -1,16 +1,15 @@
 FROM ckan/ckan:latest
 
 USER root
-ADD wsgi.py /etc/ckan/wsgi.py
-ADD ckan-uwsgi.ini /etc/ckan/ckan-uwsgi.ini
 RUN rm -rf /usr/lib/ckan/*
 COPY ./ /usr/lib/ckan/
 RUN apt update && \
     apt install uwsgi -y && \
     cd /usr/lib/ckan/ && \
     rm -rf venv && mkdir .venv && \
-    pip install pipenv \
-    pipenv sync && chown -R ckan . 
+    pip install pipenv && \
+    pipenv sync && chown -R ckan . && \
+    ln -s .venv venv
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
