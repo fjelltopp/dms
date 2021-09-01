@@ -93,10 +93,14 @@ def load_datasets(ckan, documents):
             dataset = {
                 'title': _create_title(document['dataset']),
                 'name': document['dataset_name'],
-                'year': document['year'],
+                'published_date': document['created'],
+                'year': str(document['year']),
                 'owner_org': document['owner_org'],
                 'groups': [{'name': document['category']}],
             }
+            if 'tags' in document.keys():
+                dataset['tags'] = document['tags']
+
             ckan.action.package_create(**dataset)
             log.info(f"Created dataset {dataset['name']}")
             continue
@@ -126,17 +130,20 @@ def load_resources(ckan, documents):
         resource_dict = {
             'title': document['title'],
             'name': document['name'],
-            'year': document['year'],
             'url': 'upload',
             'package_id': document['dataset_name']
         }
 
         file_id = os.path.splitext(document['file'])[0]
+        file_ext = os.path.splitext(document['file'])[1]
+
+        resource_dict['format'] = re.sub('[/.]', '', file_ext).upper()
+
         file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
-        if zipfile.is_zipfile(file_path) and os.path.splitext(file_path)[1] == '.zip':
+        if zipfile.is_zipfile(file_path) and file_ext == '.zip':
             _unpack_zip(ckan, file_path, resource_dict)
-        elif rarfile.is_rarfile(file_path) and os.path.splitext(file_path)[1] == '.rar':
+        elif rarfile.is_rarfile(file_path) and file_ext == '.rar':
             _unpack_rar(ckan, file_path, resource_dict)
         else:
             _upload_resource(ckan, file_path, resource_dict)
@@ -187,8 +194,8 @@ def load_data(ckan_url, ckan_api_key):
 
 
 def _create_name(title):
-    name = re.sub('[^a-zA-Z0-9_ ]', '', title)
-    name = re.sub('[_ ]', '-', name)
+    name = re.sub('[^a-zA-Z0-9_ /]', '', title)
+    name = re.sub('[_ /]', '-', name)
     name = name.lower()
     return name
 
@@ -232,6 +239,7 @@ def _unpack_zip(ckan, file_path, resource_dict):
                 title = os.path.splitext(filename)[0]
                 resource_dict['title'] = title
                 resource_dict['name'] = _create_name(title)
+                resource_dict['format'] = re.sub('[/.]', '', os.path.splitext(filename)[1]).upper()
                 extracted_file_path = os.path.join(extract_folder, filename)
                 _upload_resource(ckan, extracted_file_path, resource_dict)
     except Exception as e:
@@ -253,8 +261,10 @@ def _unpack_rar(ckan, file_path, resource_dict):
                 title = os.path.splitext(filename)[0]
                 resource_dict['title'] = title
                 resource_dict['name'] = _create_name(title)
+                resource_dict['format'] = re.sub('[/.]', '', os.path.splitext(filename)[1]).upper()
                 extracted_file_path = os.path.join(extract_folder, filename)
-                _upload_resource(ckan, extracted_file_path, resource_dict)
+                if not os.path.isdir(extracted_file_path):
+                    _upload_resource(ckan, extracted_file_path, resource_dict)
     except Exception as e:
         log.error(str(e))
     finally:
@@ -274,11 +284,19 @@ def _load_documents():
                     'file': row[3],
                     'program': row[5],
                     'category': _create_name(row[6]),
-                    'year': row[8],
+                    'created': row[7],
+                    'year': str(row[8]),
                     'owner_org': _create_name(row[5]),
                     'dataset': row[10],
                     'dataset_name': _create_name(row[10])
                 }
+                if len(row[9]) > 0:
+                    document['tags'] = []
+                    tags = row[9].split(',')
+                    for tag in tags:
+                        re.sub('[^a-zA-Z0-9_/\- .]', '-', tag)
+                        document['tags'].append({'name': tag})
+
                 documents.append(document)
             if row[1] == 'logi_id':
                 start_table = True
