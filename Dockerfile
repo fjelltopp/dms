@@ -13,6 +13,8 @@ RUN apt update && \
 
 RUN apt clean && rm -rf /var/lib/apt/lists/*
 
+RUN /usr/lib/ckan/bootstrap.sh
+
 ENTRYPOINT ["/ckan-entrypoint.sh"]
 #USER ckan
 EXPOSE 5000
