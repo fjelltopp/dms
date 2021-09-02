@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "37f09964730a805b987fe9c7cc4bafb323c3a18dde394f7468a541e98ec9dba7"
+            "sha256": "1b01b5f9940a78cfb8b2424ebda783c485238eac783b1c50806f0302a81a8d66"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -108,6 +108,13 @@
             "editable": true,
             "path": "./ckan"
         },
+        "ckanapi": {
+            "hashes": [
+                "sha256:35361965bfb38c8e146d7229f2d7c3aaf1c0f2ef547de4239b4d38931bf081d2"
+            ],
+            "index": "pypi",
+            "version": "==4.6"
+        },
         "ckanext-authz-service": {
             "editable": true,
             "git": "https://github.com/datopian/ckanext-authz-service",
@@ -156,6 +163,12 @@
             ],
             "index": "pypi",
             "version": "==2.8"
+        },
+        "docopt": {
+            "hashes": [
+                "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+            ],
+            "version": "==0.6.2"
         },
         "dominate": {
             "hashes": [
@@ -465,6 +478,14 @@
             "index": "pypi",
             "version": "==0.4.24"
         },
+        "python-slugify": {
+            "hashes": [
+                "sha256:6d8c5df75cd4a7c3a2d21e257633de53f52ab0265cd2d1dc62a730e8194a7380",
+                "sha256:f13383a0b9fcbe649a1892b9c8eb4f8eab1d6d84b84bb7a624317afa98159cab"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==5.0.2"
+        },
         "pytz": {
             "hashes": [
                 "sha256:1c557d7d0e871de1f5ccd5833f60fb2550652da6be2693c1e02300743d21500d",
@@ -606,6 +627,13 @@
             ],
             "index": "pypi",
             "version": "==0.4.1"
+        },
+        "text-unidecode": {
+            "hashes": [
+                "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8",
+                "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"
+            ],
+            "version": "==1.3"
         },
         "typing": {
             "hashes": [
@@ -853,6 +881,13 @@
             ],
             "markers": "python_version >= '3'",
             "version": "==2.0.4"
+        },
+        "ckanapi": {
+            "hashes": [
+                "sha256:35361965bfb38c8e146d7229f2d7c3aaf1c0f2ef547de4239b4d38931bf081d2"
+            ],
+            "index": "pypi",
+            "version": "==4.6"
         },
         "click": {
             "hashes": [
@@ -1307,6 +1342,14 @@
             "index": "pypi",
             "version": "==2019.3"
         },
+        "rarfile": {
+            "hashes": [
+                "sha256:1094869119012f95c31a6f22cc3a9edbdca61861b805241116adbe2d737b68f8",
+                "sha256:67548769229c5bda0827c1663dce3f54644f9dbfba4ae86d4da2b2afd3e602a1"
+            ],
+            "index": "pypi",
+            "version": "==4.0"
+        },
         "requests": {
             "hashes": [
                 "sha256:27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804",
@@ -1330,6 +1373,13 @@
             ],
             "index": "pypi",
             "version": "==1.14.0"
+        },
+        "slugify": {
+            "hashes": [
+                "sha256:c5703cc11c1a6947536f3ce8bb306766b8bb5a84a53717f5a703ce0f18235e4c"
+            ],
+            "index": "pypi",
+            "version": "==0.0.1"
         },
         "snowballstemmer": {
             "hashes": [
