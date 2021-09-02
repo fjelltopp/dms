@@ -101,8 +101,6 @@ def load_datasets(ckan, documents):
                 'tags': document['tags'],
                 'groups': [{'name': document['category']}],
             }
-            if 'tags' in document.keys():
-                dataset['tags'] = document['tags']
 
             ckan.action.package_create(**dataset)
             log.info(f"Created dataset {dataset['name']}")
