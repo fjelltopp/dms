@@ -275,7 +275,9 @@ def _unpack_rar(ckan, file_path, resource_dict):
 
 
 def _create_tags(tags_str):
-    tag_names = map(slugify.slugify, tags_str.split(','))
+    if not tags_str.strip():
+        return []
+    tag_names = list(map(slugify.slugify, tags_str.split(',')))
     return [{"name": tag} for tag in tag_names]
 
 
