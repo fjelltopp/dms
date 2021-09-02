@@ -64,6 +64,7 @@ Flask-DebugToolbar = "==0.11.0"
 Sphinx = "==1.8.5"
 ckanapi = "*"
 rarfile = "*"
+slugify = "*"
 
 [requires]
 python_version = "3.8"

@@ -10,6 +10,8 @@ import zipfile
 import rarfile
 import shutil
 
+import slugify
+
 CONFIG_FILENAME = os.getenv('CONFIG_FILENAME', 'config.json')
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), CONFIG_FILENAME)
 
@@ -95,6 +97,7 @@ def load_datasets(ckan, documents):
                 'name': document['dataset_name'],
                 'year': document['year'],
                 'owner_org': document['owner_org'],
+                'tags': document['tags'],
                 'groups': [{'name': document['category']}],
             }
             ckan.action.package_create(**dataset)
@@ -261,6 +264,11 @@ def _unpack_rar(ckan, file_path, resource_dict):
         shutil.rmtree(extract_folder)
 
 
+def _create_tags(tags_str):
+    tag_names = map(slugify.slugify, tags_str.split(','))
+    return [{"name": tag} for tag in tag_names]
+
+
 def _load_documents():
     with open(DOCUMENTS_FILE) as csvfile:
         metadata_reader = csv.reader(csvfile)
@@ -276,6 +284,7 @@ def _load_documents():
                     'category': _create_name(row[6]),
                     'year': row[8],
                     'owner_org': _create_name(row[5]),
+                    'tags': _create_tags(row[9]),
                     'dataset': row[10],
                     'dataset_name': _create_name(row[10])
                 }
