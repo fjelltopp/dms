@@ -96,7 +96,7 @@ def load_datasets(ckan, documents):
                 'title': _create_title(document['dataset']),
                 'name': document['dataset_name'],
                 'published_date': document['created'],
-                'year': str(document['year']),
+                'extras': [{'key': 'year', 'value': str(document['year'])}],
                 'owner_org': document['owner_org'],
                 'tags': document['tags'],
                 'groups': [{'name': document['category']}],
