@@ -1,0 +1,48 @@
+{
+  "organizations": [
+    {
+      "users": [
+        {
+          "name": "fjelltopp_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "fjelltopp_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "fjelltopp_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Fjelltopp",
+      "description": "Fjelltopp demo organization",
+      "image_url": "https://www.fjelltopp.org/templates/fjelltopp/images/navbar.png",
+      "name": "fjelltopp",
+      "state": "active",
+      "title": "Fjelltopp"
+    },
+    {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Test Program",
+      "description": "Test program for demo purposes",
+      "image_url": "https://en.wikipedia.org/wiki/Test_card#/media/File:Philips_PM5544.svg",
+      "name": "test-program",
+      "state": "active",
+      "title": "Test Program"
+    }
+  ]
+}

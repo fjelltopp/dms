@@ -1,3 +1,9 @@
+/.idea
+/util/data_migration/inputs/*
+!/util/data_migration/inputs/demo_data/
+/util/data_migration/config-*
 /storage
 /webassets
 /venv
+
+
