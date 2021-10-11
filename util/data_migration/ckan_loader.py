@@ -294,7 +294,7 @@ def _load_documents():
                     'category': _create_name(row[6]),
                     'created': row[7],
                     'year': str(row[8]),
-                    'owner_org': _create_name(row[5]),
+                    'owner_org': 'DHA',
                     'tags': _create_tags(row[9]),
                     'dataset': row[10],
                     'dataset_name': _create_name(row[10])

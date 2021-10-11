@@ -37,12 +37,12 @@
           "capacity": "member"
         }
       ],
-      "display_name": "Test Program",
-      "description": "Test program for demo purposes",
-      "image_url": "https://en.wikipedia.org/wiki/Test_card#/media/File:Philips_PM5544.svg",
-      "name": "test-program",
+      "display_name": "DHA",
+      "description": "Department of HIV & AIDS",
+      "image_url": "",
+      "name": "dha",
       "state": "active",
-      "title": "Test Program"
+      "title": "Department of HIV & AIDS"
     }
   ]
 }
