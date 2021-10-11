@@ -142,6 +142,7 @@ def load_resources(ckan, documents):
         file_ext = os.path.splitext(document['file'])[1]
 
         resource_dict['format'] = re.sub('[/.]', '', file_ext).upper()
+        resource_dict['filename'] = f"{document['name']}.{file_ext}"
 
         file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
