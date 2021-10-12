@@ -96,7 +96,10 @@ def load_datasets(ckan, documents):
                 'title': _create_title(document['dataset']),
                 'name': document['dataset_name'],
                 'published_date': document['created'],
-                'extras': [{'key': 'year', 'value': str(document['year'])}],
+                'extras': [
+                    {'key': 'year', 'value': str(document['year'])},
+                    {'key': 'program_area', 'value': str(document['program_area'])}
+                ],
                 'owner_org': document['owner_org'],
                 'tags': document['tags'],
                 'groups': [{'name': document['category']}],
@@ -139,6 +142,7 @@ def load_resources(ckan, documents):
         file_ext = os.path.splitext(document['file'])[1]
 
         resource_dict['format'] = re.sub('[/.]', '', file_ext).upper()
+        resource_dict['filename'] = f"{document['name']}.{file_ext}"
 
         file_path = os.path.join(RESOURCE_FOLDER, file_id, document['file'])
 
@@ -294,7 +298,8 @@ def _load_documents():
                     'category': _create_name(row[6]),
                     'created': row[7],
                     'year': str(row[8]),
-                    'owner_org': _create_name(row[5]),
+                    'owner_org': 'dha',
+                    'program_area': row[5],
                     'tags': _create_tags(row[9]),
                     'dataset': row[10],
                     'dataset_name': _create_name(row[10])
