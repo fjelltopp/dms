@@ -58,6 +58,7 @@ unicodecsv = ">=0.9"
 Routes = "==1.13"
 pastedeploy = "==2.0.1"
 ckanext-emailasusername = {editable = true, ref = "ed5b490c127ccc78f2c2f13e657f7e1307448c97", git = "https://github.com/fjelltopp/ckanext-emailasusername"}
+ckanext-short-urls = {editable = true, path = "./ckanext-short-urls"}
 
 [dev-packages]
 beautifulsoup4 = "==4.9.1"
@@ -83,6 +84,7 @@ ckanapi = "*"
 rarfile = "*"
 slugify = "*"
 pydevd-pycharm = "*"
+pytest-ckan = "*"
 
 [requires]
 python_version = "3.8"
