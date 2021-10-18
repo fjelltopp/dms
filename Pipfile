@@ -86,6 +86,7 @@ pydevd-pycharm = "*"
 twine = "*"
 mock = "==2.0.0"
 pyfakefs = "==3.2"
+pytest-ckan = "*"
 
 [requires]
 python_version = "3.8"
