@@ -15,7 +15,7 @@ RUN apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN /usr/lib/ckan/bootstrap.sh
 
-ENTRYPOINT ["/ckan-entrypoint.sh"]
+ENTRYPOINT ["/usr/lib/ckan/ckan-entrypoint.sh"]
 #USER ckan
 EXPOSE 5000
 CMD ${CKAN_VENV}/bin/uwsgi --ini-paste ${CKAN_CONFIG}/ckan-uwsgi.ini
