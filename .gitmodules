@@ -4,3 +4,9 @@
 [submodule "ckanext-dms"]
 	path = ckanext-dms
 	url = git@github.com:fjelltopp/ckanext-dms.git
+[submodule "ckanext-emailasusername"]
+	path = ckanext-emailasusername
+	url = git@github.com:fjelltopp/ckanext-emailasusername.git
+[submodule "ckanext-short-urls"]
+	path = ckanext-short-urls
+	url = git@github.com:fjelltopp/ckanext-short-urls.git
