@@ -23,6 +23,16 @@ multibranchPipelineJob('DMS-build') {
               traits {
                 gitHubTagDiscovery()
                 ignoreDraftPullRequestFilterTrait()
+                submoduleOptionTrait {
+                  extension {
+                    disableSubmodules(false)
+                    recursiveSubmodules(true)
+                    trackingSubmodules(false)
+                    reference(null)
+                    timeout(null)
+                    parentCredentials(true)
+                  }
+                }
               }
 
           }
