@@ -41,7 +41,7 @@ pipeline {
       }
     stage('Build Image') {
       steps {
-        build_docker_image('dms-fjelltopp', tag)
+        build_docker_image('ckan-fjelltopp', tag)
         }
 
       }
