@@ -1,17 +1,11 @@
-FROM ckan/ckan:latest
+FROM fjelltopp/ckan:base
 
 USER root
 RUN rm -rf /usr/lib/ckan/*
 COPY ./ /usr/lib/ckan/
-RUN apt update && \
-    apt install uwsgi -y && \
-    cd /usr/lib/ckan/ && \
-    rm -rf venv && mkdir .venv && \
-    pip install pipenv && \
-    pipenv sync && chown -R ckan . && \
+RUN cd /usr/lib/ckan/ && mkdir .venv && pipenv sync && \
     ln -s .venv venv
-
-RUN apt clean && rm -rf /var/lib/apt/lists/*
+RUN chown -R ckan:ckan /usr/lib/ckan/
 
 RUN /usr/lib/ckan/bootstrap.sh
 
