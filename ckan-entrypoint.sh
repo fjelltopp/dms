@@ -69,6 +69,8 @@ if [ -z "$CKAN_DATAPUSHER_URL" ]; then
 fi
 
 set_environment
+echo "Running db init: ..."
 ckan --config "$CONFIG" db init
+echo "Running short-urls init: ..."
 ckan --config "$CONFIG" short-urls initdb
 exec "$@"
