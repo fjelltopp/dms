@@ -31,7 +31,7 @@ Beaker = "==1.11.0"
 Flask = "==1.1.1"
 Flask-Babel = "==1.0.0"
 Jinja2 = "==2.10.1"
-PyJWT = "==1.7.1"
+PyJWT = {version = "==2.1.0",extras = ["crypto"]}
 Markdown = "==2.6.7"
 PyUtilib = "==5.7.1"
 PyYAML = "==5.4.1"
