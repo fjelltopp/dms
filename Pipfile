@@ -61,7 +61,7 @@ Routes = "==1.13"
 PasteDeploy = "==2.0.1"
 watchdog = "==2.1.5"
 ckanext-pages = {editable = true, ref = "79d9740ffa048ac25ab94de0a5209db0411d0c42", git = "https://github.com/ckan/ckanext-pages.git"}
-ckanext-dataset-subscriptions = {editable = true, ref = "v0.0.2", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
+ckanext-dataset-subscriptions = {editable = true, ref = "v0.1.0", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
 Unihandecode = "==0.81"
 
 [dev-packages]
