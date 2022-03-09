@@ -30,7 +30,7 @@ Beaker = "==1.11.0"
 Flask = "==1.1.1"
 Flask-Babel = "==1.0.0"
 Jinja2 = "==2.10.1"
-PyJWT = "==1.7.1"
+PyJWT = {version = "==2.1.0",extras = ["crypto"]}
 Markdown = "==2.6.7"
 PyUtilib = "==5.7.1"
 PyYAML = "==5.4.1"
@@ -59,13 +59,15 @@ unicodecsv = ">=0.9"
 Routes = "==1.13"
 PasteDeploy = "==2.0.1"
 watchdog = "==2.1.5"
+zope = {interface = "==4.3.2"}
 ckanext-pages = {editable = true, ref = "79d9740ffa048ac25ab94de0a5209db0411d0c42", git = "https://github.com/ckan/ckanext-pages.git"}
 ckanext-dataset-subscriptions = {editable = true, ref = "v0.1.0", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
+# dataset-subscriptions requirements
+unihandecode = "==0.81"
+twilio = "==7.7.0"
 # Markupsafe and isdangerous downgraded because of dependencies issue
 markupsafe = "==2.0.1"
 itsdangerous = "==2.0.1"
-zope = {interface = "==4.3.2"}
-unihandecode = "==0.81"
 
 [dev-packages]
 beautifulsoup4 = "==4.9.1"
