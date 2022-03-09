@@ -62,8 +62,8 @@ watchdog = "==2.1.5"
 ckanext-pages = {editable = true, ref = "79d9740ffa048ac25ab94de0a5209db0411d0c42", git = "https://github.com/ckan/ckanext-pages.git"}
 ckanext-dataset-subscriptions = {editable = true, ref = "v0.1.0", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
 # Markupsafe and isdangerous downgraded because of dependencies issue
-# markupsafe = "==2.0.1"
-# itsdangerous = "==2.0.1"
+markupsafe = "==2.0.1"
+itsdangerous = "==2.0.1"
 zope = {interface = "==4.3.2"}
 unihandecode = "==0.81"
 
