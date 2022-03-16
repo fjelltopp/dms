@@ -5,5 +5,5 @@
 /storage
 /webassets
 /venv
-
-
+.local
+.minikubevenv
