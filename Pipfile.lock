@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "84e833546f0d149cd08fa7a10410d772dc38ccdd5eb8275eaa92b3f1aec0a5f2"
+            "sha256": "51cfc0ba589b6fee29c993a8cabeb4fcb90e81425634e5962c202bd634412bf8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -107,6 +107,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.0"
+        },
+        "async-timeout": {
+            "hashes": [
+                "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15",
+                "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==4.0.2"
         },
         "authencoding": {
             "hashes": [
@@ -256,6 +264,12 @@
             "editable": true,
             "path": "./ckan"
         },
+        "ckanapi": {
+            "hashes": [
+                "sha256:35361965bfb38c8e146d7229f2d7c3aaf1c0f2ef547de4239b4d38931bf081d2"
+            ],
+            "version": "==4.6"
+        },
         "ckanext-authz-service": {
             "editable": true,
             "git": "https://github.com/datopian/ckanext-authz-service",
@@ -269,7 +283,7 @@
         "ckanext-dataset-subscriptions": {
             "editable": true,
             "git": "https://github.com/fjelltopp/ckanext-dataset-subscriptions",
-            "ref": "fd575c72acd433e920d1f0948410158b25394b72"
+            "ref": "aef882ecc16e319138bddbec52a376b92635ada1"
         },
         "ckanext-dms": {
             "editable": true,
@@ -287,6 +301,11 @@
             "editable": true,
             "git": "https://github.com/ckan/ckanext-pages.git",
             "ref": "79d9740ffa048ac25ab94de0a5209db0411d0c42"
+        },
+        "ckanext-scheming": {
+            "editable": true,
+            "git": "https://github.com/ckan/ckanext-scheming.git",
+            "ref": "8ba8565d875dc916e1aa4e55cd6ef138193e2fcf"
         },
         "ckanext-short-urls": {
             "hashes": [
@@ -356,6 +375,12 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==1.2.13"
+        },
+        "docopt": {
+            "hashes": [
+                "sha256:49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
+            ],
+            "version": "==0.6.2"
         },
         "documenttemplate": {
             "hashes": [
@@ -893,6 +918,14 @@
             "index": "pypi",
             "version": "==0.4.15"
         },
+        "python-slugify": {
+            "hashes": [
+                "sha256:00003397f4e31414e922ce567b3a4da28cf1436a53d332c9aeeb51c7d8c469fd",
+                "sha256:8c0016b2d74503eb64761821612d58fcfc729493634b1eb0575d8f5b4aa1fbcf"
+            ],
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
+            "version": "==6.1.1"
+        },
         "pytz": {
             "hashes": [
                 "sha256:054d9814d00254571cff84f6faedb25c046008322cbe51a6d5664c912b4f2929",
@@ -957,11 +990,11 @@
         },
         "redis": {
             "hashes": [
-                "sha256:04629f8e42be942c4f7d1812f2094568f04c612865ad19ad3ace3005da70631a",
-                "sha256:1d9a0cdf89fdd93f84261733e24f55a7bbd413a9b219fdaf56e3e728ca9a2306"
+                "sha256:3cbe235cea80b9c9991b397567aa2d65eb4e6fb09787f61d227ae82eb4eb50b4",
+                "sha256:6758d01dec81af191b98a35cce3402675d115456584c39b500ab485a5e386bbb"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==4.1.4"
+            "version": "==4.2.0"
         },
         "repoze.lru": {
             "hashes": [
@@ -1101,6 +1134,13 @@
                 "sha256:f4554840cb59c6b4a5df4fad27eea4e3cb47ca7089bfeefb5890ff1bb8af2117"
             ],
             "version": "==0.5.2"
+        },
+        "text-unidecode": {
+            "hashes": [
+                "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8",
+                "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"
+            ],
+            "version": "==1.3"
         },
         "transaction": {
             "hashes": [
@@ -1895,10 +1935,10 @@
         },
         "zope.structuredtext": {
             "hashes": [
-                "sha256:59e8cac73e4d7e35b92411bb5d14cfef0ac651f495cebdf83f063f396abca29e",
-                "sha256:b104e76b090179f11f0462ef7efb4d31378b0e4e20b1d844eae05d2da5e97d00"
+                "sha256:c94f7b10d3151c816cd57138d4b5a4782f8e34d192ead3717cf2a1b7bcb8879f",
+                "sha256:ca57712bcbe9d8cc7f168f9c40924ad819de58cc51bdc175b49b2bde6662c628"
             ],
-            "version": "==4.3"
+            "version": "==4.4"
         },
         "zope.tal": {
             "hashes": [
@@ -1939,10 +1979,10 @@
         },
         "zope.viewlet": {
             "hashes": [
-                "sha256:2b37893767393c7df8e718d69d1881c0f1872caafa15fbdaae08554ac566fd77",
-                "sha256:2d892af313d7a60f7fbf58e20e6584ff9c896dd7bdfcb7bbd0cf415862d790ea"
+                "sha256:689cd1e0ad9589b0b6f2ee9377ed18016a4327e779d9b8c2699af79d230a5eb0",
+                "sha256:b121a797f61a811086c08f6d19d9f5125a33b39cefc644691ff0f39dd67a2459"
             ],
-            "version": "==4.2.1"
+            "version": "==4.3"
         }
     },
     "develop": {
@@ -2083,7 +2123,6 @@
             "hashes": [
                 "sha256:35361965bfb38c8e146d7229f2d7c3aaf1c0f2ef547de4239b4d38931bf081d2"
             ],
-            "index": "pypi",
             "version": "==4.6"
         },
         "click": {
