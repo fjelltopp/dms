@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "51cfc0ba589b6fee29c993a8cabeb4fcb90e81425634e5962c202bd634412bf8"
+            "sha256": "cee919a92e1578b69141ed27bcedb89d468d90061afb9acc01c4fd251334be65"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -283,7 +283,7 @@
         "ckanext-dataset-subscriptions": {
             "editable": true,
             "git": "https://github.com/fjelltopp/ckanext-dataset-subscriptions",
-            "ref": "aef882ecc16e319138bddbec52a376b92635ada1"
+            "ref": "9b17994df34c03049e744cd7fb52cddb03458a52"
         },
         "ckanext-dms": {
             "editable": true,
@@ -587,7 +587,7 @@
                 "sha256:23aab11fdbbb0f1051b93793a58323ff937e98e34aece1c4219675122e57e4ba",
                 "sha256:9a7c7e922b87db3686210cf49d5d767033a41d4010b284e747682c92bddd8b39"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==1.2.0"
         },
         "markdown": {
@@ -1055,7 +1055,7 @@
                 "sha256:6599055eeb23bfef457d5605d33a4d68804266e6cb430b0fb12417c5efeae36c",
                 "sha256:782ef48d58982ddb49920c11a0c5c9c0b02e7d7d1c2ad0aa44e1a1e133051c96"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==60.10.0"
         },
         "shutilwhich": {
@@ -1217,7 +1217,7 @@
                 "sha256:c549f5b2b4afd44d9d97d7cec79f3ef581e25d832827f415dc175327af674aa8",
                 "sha256:e2e60576cf14a1539da79f7b7ee1e79a71e64f366a0b47db54a15e971f57bb16"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==2.1.1"
         },
         "watchdog": {
@@ -2785,7 +2785,7 @@
                 "sha256:6599055eeb23bfef457d5605d33a4d68804266e6cb430b0fb12417c5efeae36c",
                 "sha256:782ef48d58982ddb49920c11a0c5c9c0b02e7d7d1c2ad0aa44e1a1e133051c96"
             ],
-            "markers": "python_version >= '3.7'",
+            "markers": "python_full_version >= '3.7.0'",
             "version": "==60.10.0"
         },
         "six": {
