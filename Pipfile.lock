@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "39da1f305e9db3a46094e5031898281948eb1b9148da7af253cc70bf6ead674c"
+            "sha256": "51cfc0ba589b6fee29c993a8cabeb4fcb90e81425634e5962c202bd634412bf8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -107,6 +107,14 @@
             ],
             "index": "pypi",
             "version": "==1.0.0"
+        },
+        "async-timeout": {
+            "hashes": [
+                "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15",
+                "sha256:8ca1e4fcf50d07413d66d1a5e416e42cfdf5851c981d679a09851a6853383b3c"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==4.0.2"
         },
         "authencoding": {
             "hashes": [
@@ -275,7 +283,7 @@
         "ckanext-dataset-subscriptions": {
             "editable": true,
             "git": "https://github.com/fjelltopp/ckanext-dataset-subscriptions",
-            "ref": "fd575c72acd433e920d1f0948410158b25394b72"
+            "ref": "aef882ecc16e319138bddbec52a376b92635ada1"
         },
         "ckanext-dms": {
             "editable": true,
@@ -982,11 +990,11 @@
         },
         "redis": {
             "hashes": [
-                "sha256:04629f8e42be942c4f7d1812f2094568f04c612865ad19ad3ace3005da70631a",
-                "sha256:1d9a0cdf89fdd93f84261733e24f55a7bbd413a9b219fdaf56e3e728ca9a2306"
+                "sha256:3cbe235cea80b9c9991b397567aa2d65eb4e6fb09787f61d227ae82eb4eb50b4",
+                "sha256:6758d01dec81af191b98a35cce3402675d115456584c39b500ab485a5e386bbb"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==4.1.4"
+            "version": "==4.2.0"
         },
         "repoze.lru": {
             "hashes": [
