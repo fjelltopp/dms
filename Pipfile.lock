@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "cee919a92e1578b69141ed27bcedb89d468d90061afb9acc01c4fd251334be65"
+            "sha256": "90e1bd32257f9cabe67ee7e2916704a4c26e617f0042ef5456de43afe1cf9a4f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -283,7 +283,7 @@
         "ckanext-dataset-subscriptions": {
             "editable": true,
             "git": "https://github.com/fjelltopp/ckanext-dataset-subscriptions",
-            "ref": "9b17994df34c03049e744cd7fb52cddb03458a52"
+            "ref": "9c85a5bce28ee7e481929a4dc671bea2fd93b2f1"
         },
         "ckanext-dms": {
             "editable": true,
@@ -2267,11 +2267,11 @@
         },
         "faker": {
             "hashes": [
-                "sha256:66db859b6abe376d02e805ad81eb8dcfce38f0945f17ee7cdf74ed349985ea52",
-                "sha256:fe969607836ce7100e38b88dcb598aacb733d895e6e9401894dd603e35623000"
+                "sha256:5536ceb63380f0d598c026b7c330c17d719a19d1a495e9397ee8f5259420a696",
+                "sha256:85ed0cb379e3b7414bdb6b484994beaf9bddc74472c8c35f743c16cf5fc0c314"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==13.3.2"
+            "version": "==13.3.3"
         },
         "flask": {
             "hashes": [
@@ -2882,11 +2882,11 @@
         },
         "tqdm": {
             "hashes": [
-                "sha256:1d9835ede8e394bb8c9dcbffbca02d717217113adc679236873eeaac5bc0b3cd",
-                "sha256:e643e071046f17139dea55b880dc9b33822ce21613b4a4f5ea57f202833dbc29"
+                "sha256:4230a49119a416c88cc47d0d2d32d5d90f1a282d5e497d49801950704e49863d",
+                "sha256:6461b009d6792008d0000e1b0c7ca50195ec78c0e808a3a6b668a56a3236c3a5"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-            "version": "==4.63.0"
+            "version": "==4.63.1"
         },
         "traitlets": {
             "hashes": [

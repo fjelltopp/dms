@@ -61,7 +61,7 @@ PasteDeploy = "==2.0.1"
 watchdog = "==2.1.5"
 zope = {interface = "==4.3.2"}
 ckanext-pages = {editable = true, ref = "79d9740ffa048ac25ab94de0a5209db0411d0c42", git = "https://github.com/ckan/ckanext-pages.git"}
-ckanext-dataset-subscriptions = {editable = true, ref = "v0.1.5", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
+ckanext-dataset-subscriptions = {editable = true, ref = "v0.1.6", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
 # ckanext-dataset-subscriptions = {path = "./ckanext-dataset-subscriptions",editable = true}
 # dataset-subscriptions requirements
 unihandecode = "==0.81"
