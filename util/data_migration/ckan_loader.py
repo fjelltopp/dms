@@ -107,6 +107,8 @@ def load_datasets(ckan, documents):
             log.info(f"Created dataset {dataset['name']}")
             continue
         except ckanapi.errors.ValidationError as e:
+            print(document)
+            print(str(e))
             pass  # fallback to dataset update
         try:
             log.warning(f"Dataset {dataset['name']} might already exists. Will try to update.")

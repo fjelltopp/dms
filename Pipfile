@@ -70,6 +70,7 @@ twilio = "==7.7.0"
 markupsafe = "==2.0.1"
 itsdangerous = "==2.0.1"
 ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"}
+rarfile = "*"
 
 [dev-packages]
 beautifulsoup4 = "==4.9.1"
