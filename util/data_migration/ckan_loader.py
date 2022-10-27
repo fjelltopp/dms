@@ -101,6 +101,7 @@ def load_datasets(ckan, documents):
                 'owner_org': document['owner_org'],
                 'tags': document['tags'],
                 'groups': [{'name': document['category']}],
+                'notes': document['dataset_notes']
             }
 
             ckan.action.package_create(**dataset)
@@ -300,7 +301,8 @@ def _load_documents():
                     'program_area': row[5],
                     'tags': _create_tags(row[9]),
                     'dataset': row[10],
-                    'dataset_name': _create_name(row[10])
+                    'dataset_name': _create_name(row[10]),
+                    'dataset_notes': row[11]
                 }
                 if len(row[9]) > 0:
                     document['tags'] = []
