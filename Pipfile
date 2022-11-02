@@ -70,6 +70,9 @@ twilio = "==7.7.0"
 markupsafe = "==2.0.1"
 itsdangerous = "==2.0.1"
 ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"}
+ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}
+ckanext-googleanalytics = "*"
+oauth2client = "*"
 
 [dev-packages]
 beautifulsoup4 = "==4.9.1"
