@@ -1,4 +1,4 @@
-FROM fjelltopp/ckan:base
+FROM ghcr.io/fjelltopp/fjelltopp-base-images/ckan_base:master
 
 USER root
 RUN rm -rf /usr/lib/ckan/*
