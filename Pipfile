@@ -54,6 +54,7 @@ ckanext-blob-storage = {editable = true, ref = "eb8ea60cac30dee85bf65329e079f971
 ckanext-pages = {editable = true, ref = "2a92bb874a82a2c008d5764ce290ae6950e428af", git = "https://github.com/ckan/ckanext-pages.git"}
 ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}  
 ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"} 
+ckanext-geoview = {editable = true, ref = "832ad5e9ceb3ef812b6878a53d7dc92e5b71debe", git = "https://github.com/ckan/ckanext-geoview.git"}
 ckan = {path = "./ckan",editable = true}
 ckanext-dms = {path = "./ckanext-dms",editable = true}
 ckanext-short-urls = {path = "./ckanext-short-urls",editable = true}
