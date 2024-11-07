@@ -1,0 +1,59 @@
+{
+    "datasets": [{
+        "name": "test-report",
+        "title": "Test report",
+        "type": "dataset",
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat sollicitudin fringilla. Sed ut sodales dui. Sed maximus nec metus vitae tincidunt. Phasellus finibus urna velit. Donec mi urna, pulvinar sit amet ante a, pharetra elementum elit. Nam euismod semper viverra. Morbi a ipsum lorem. Fusce sodales neque nec egestas gravida. Sed dictum risus non turpis mattis, dictum condimentum massa blandit. Quisque in tincidunt velit.",
+        "owner_org": "dha",
+        "private": false,
+        "program_area": "Sexually Transmitted Infection",
+        "year": "2022",
+        "groups": [{"name": "publications"}],
+        "tags": [{"name": "Report"}],
+        "resources": [{
+            "filename": "1.docx",
+            "format": "DOCX",
+            "name": "Test MS Word Document"
+        }, {
+            "filename": "2.pdf",
+            "format": "PDF",
+            "name": "Test PDF Document"
+        }]
+    }, {
+        "name": "test-data",
+        "title": "Test data",
+        "type": "dataset",
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat sollicitudin fringilla. Sed ut sodales dui. Sed maximus nec metus vitae tincidunt. Phasellus finibus urna velit. Donec mi urna, pulvinar sit amet ante a, pharetra elementum elit. Nam euismod semper viverra. Morbi a ipsum lorem. Fusce sodales neque nec egestas gravida. Sed dictum risus non turpis mattis, dictum condimentum massa blandit. Quisque in tincidunt velit.",
+        "owner_org": "dha",
+        "private": false,
+        "program_area": "Care and Treatment",
+        "year": "2023",
+        "groups": [{"name": "data"}],
+        "tags": [{"name": "Data"}],
+        "resources": [{
+            "filename": "3.xlsx",
+            "format": "XLSX",
+            "name": "Test XLSX Data"
+        }, {
+            "filename": "4.csv",
+            "format": "CSV",
+            "name": "Test CSV Data"
+        }]
+    }, {
+        "name": "test-xlsx",
+        "title": "XLSX Plan",
+        "type": "dataset",
+        "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat sollicitudin fringilla. Sed ut sodales dui. Sed maximus nec metus vitae tincidunt. Phasellus finibus urna velit. Donec mi urna, pulvinar sit amet ante a, pharetra elementum elit. Nam euismod semper viverra. Morbi a ipsum lorem. Fusce sodales neque nec egestas gravida. Sed dictum risus non turpis mattis, dictum condimentum massa blandit. Quisque in tincidunt velit.",
+        "owner_org": "dha",
+        "private": false,
+        "program_area": "Strategic Plan",
+        "year": "2023",
+        "groups": [{"name": "plan"}],
+        "tags": [{"name": "Template"}],
+        "resources": [{
+            "filename": "6.xlsx",
+            "format": "XLSX",
+            "name": "Excel Template"
+        }]
+    }]
+}

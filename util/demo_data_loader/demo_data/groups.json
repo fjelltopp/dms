@@ -1,0 +1,69 @@
+{
+  "groups": [
+    {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Data",
+      "description": "",
+      "image_url": "https://dms.hiv.health.gov.mw//uploads/group/2022-07-24-152420.906558circular.png",
+      "name": "data",
+      "state": "active",
+      "title": "Data"
+    },
+    {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Reports & Publications",
+      "description": "",
+      "image_url": "https://dms.hiv.health.gov.mw/uploads/group/2022-03-17-123757.433896243660articlesquareicon.png",
+      "name": "publications",
+      "state": "active",
+      "title": "Reports & Publications"
+    },{
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Plans",
+      "description": "",
+      "image_url": "https://dms.hiv.health.gov.mw/uploads/group/2022-03-17-123743.3695114308313economicsmarketplanstrategicstrategyicon.png",
+      "name": "plan",
+      "state": "active",
+      "title": "Plans"
+    }
+  ]
+}
