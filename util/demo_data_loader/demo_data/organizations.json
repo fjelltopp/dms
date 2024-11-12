@@ -1,0 +1,26 @@
+{
+  "organizations": [
+    {
+      "users": [
+        {
+          "name": "test_admin",
+          "capacity": "admin"
+        },
+        {
+          "name": "test_editor",
+          "capacity": "editor"
+        },
+        {
+          "name": "test_member",
+          "capacity": "member"
+        }
+      ],
+      "display_name": "Department for HIV, AIDS & Viral Hepatitis",
+      "description": "Department for HIV, AIDS & Viral Hepatitis use this platform as a space to archive datasets for the long term, as well as share datasets that they have curated with internal and external partners. ",
+      "image_url": "https://dms.hiv.health.gov.mw/uploads/group/2022-04-18-074318.527302WhatsApp-Image-2022-04-18-at-9.42.07-AM.jpeg",
+      "name": "dha",
+      "state": "active",
+      "title": "Department for HIV, AIDS & Viral Hepatitis"
+    }
+  ]
+}

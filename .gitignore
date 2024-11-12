@@ -7,3 +7,9 @@
 /venv
 .local
 .minikubevenv
+.bash_history
+.cache
+.ipython
+.vscode
+.pdbhistory
+*.code-workspace
