@@ -1,4 +1,4 @@
-FROM ghcr.io/fjelltopp/fjelltopp-base-images/ckan_base:master
+FROM ghcr.io/fjelltopp/fjelltopp-base-images/ckan_py310_base:1.0.0
 
 USER root
 RUN rm -rf /usr/lib/ckan/*
