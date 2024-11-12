@@ -4,108 +4,120 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-msgspec = "==0.18.6"
+# CKAN direct dependencies
 alembic = "==1.13.2"
+babel = "==2.15.0"
 bleach = "==6.1.0"
 blinker = "==1.8.2"
+certifi = ">=2024.7.4"
 click = "==8.1.7"
 dominate = "==2.9.1"
 feedgen = "==1.0.0"
-packaging = "==24.1"
+flask = "==3.0.3"
+flask-babel = "==4.0.0"
+flask-login = "==0.6.3"
 flask-multistatic = "==1.0"
+flask-session = "==0.8.0"
+flask-wtf = "==1.2.1"
+idna = "==3.7"
+jinja2 = "==3.1.4"
+markdown = "==3.7.0"
+msgspec = "==0.18.6"
+packaging = "==24.1"
 passlib = "==1.7.4"
 polib = "==1.2.0"
 psycopg2 = "==2.9.9"
+pyjwt = {version = "==2.8.0",extras = ["crypto"]}
 pyparsing = "==3.1.2"
-python-magic = "==0.4.27"
 pysolr = "==3.9.0"
 python-dateutil = "==2.9.0.post0"
+python-magic = "==0.4.27"
 pytz = "==2024.2"
-"repoze.who" = "==2.3"
+pyyaml = "==6.0.1"
 requests = "==2.32.3"
 rq = "==1.16.2"
 simplejson = "==3.19.2"
+six = "==1.16.0"
+sqlalchemy = {version = "==1.4.52", extras = ["mypy"]}
 sqlparse = "==0.5.0"
+typing-extensions = "==4.12.2"
 tzlocal = "==5.2"
+urllib3 = "==2.2.2"
+uwsgi = "==2.0.28"
+watchdog = "==4.0.1"
 webassets = "==2.0"
-Babel = "==2.15.0"
-Beaker = "==1.11.0"
-Flask = "==3.0.3"
-Flask-Babel = "==4.0.0"
-Jinja2 = "==3.1.4"
-PyJWT = {version = "==2.8.0",extras = ["crypto"]}
-Markdown = "==3.7.0"
-PyUtilib = "==5.7.1"
-PyYAML = "==6.0.1"
-SQLAlchemy = {version = "==1.4.52", extras = ["mypy"]}
-Flask-Login = "==0.6.3"
-Flask-Session = "==0.8.0"
-Flask-WTF = "==1.2.1"
-Werkzeug = {version = "==3.0.3", extras = ["watchdog"]}
+werkzeug = {version = "==3.0.3", extras = ["watchdog"]}
+
+# Additional dependencies
+beaker = "==1.11.0"
+"repoze.who" = "==2.3"
+pyutilib = "==5.7.1"
+
+# Git submodules
 ckan = {path = "./ckan",editable = true}
 ckanext-dms = {path = "./ckanext-dms",editable = true}
-uWSGI = "==2.0.28"
-ckanext-authz-service = {editable = true, ref = "3d52c13cce5152f1a75f89a21e88c319b6c2ea82", git = "https://github.com/fjelltopp/ckanext-authz-service"}
-ckanext-blob-storage = {editable = true, ref = "eb8ea60cac30dee85bf65329e079f971ca8c90c4", git = "https://github.com/fjelltopp/ckanext-blob-storage"}
 ckanext-emailasusername = {path = "./ckanext-emailasusername",editable = true}
 ckanext-short-urls = {path = "./ckanext-short-urls",editable = true}
-certifi = ">=2024.7.4"
+
+# CKAN packages
+ckanext-authz-service = {editable = true, ref = "3d52c13cce5152f1a75f89a21e88c319b6c2ea82", git = "https://github.com/fjelltopp/ckanext-authz-service"}
+ckanext-blob-storage = {editable = true, ref = "eb8ea60cac30dee85bf65329e079f971ca8c90c4", git = "https://github.com/fjelltopp/ckanext-blob-storage"}
+ckanext-dataset-subscriptions = {editable = true, ref = "3b323852eda3ad74001aa9837e5fa7820f6a91c2", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
+ckanext-pages = {editable = true, ref = "2a92bb874a82a2c008d5764ce290ae6950e428af", git = "https://github.com/ckan/ckanext-pages.git"}
+ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}
+ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"}
+
+# Additional dependencies
 cffi = "==1.17.1"
 chardet = "==3.0.4"
-giftless-client = "==0.1.1"
-idna = "==2.9"
-pycparser = "==2.20"
-six = "==1.14.0"
-typing-extensions = "==4.12.2"
-typing = "==3.7.4.1"
-urllib3 = "==1.25.9"
 fanstatic = "==1.1"
+giftless-client = "==0.1.1"
+pastedeploy = "==2.0.1"
+pycparser = "==2.20"
+routes = "==1.13"
 sqlalchemy-migrate = "==0.12.0"
+typing = "==3.7.4.1"
 unicodecsv = ">=0.9"
-Routes = "==1.13"
-PasteDeploy = "==2.0.1"
-watchdog = "==4.0.1"
 zope = {interface = "==6.4post2"}
-ckanext-pages = {editable = true, ref = "2a92bb874a82a2c008d5764ce290ae6950e428af", git = "https://github.com/ckan/ckanext-pages.git"}
-ckanext-dataset-subscriptions = {editable = true, ref = "3b323852eda3ad74001aa9837e5fa7820f6a91c2", git = "https://github.com/fjelltopp/ckanext-dataset-subscriptions"}
+
 # dataset-subscriptions requirements
-unihandecode = "==0.81"
-twilio = "==7.7.0"
-markupsafe = "==2.1.5"
 itsdangerous = "==2.2.0"
-ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"}
-ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}
+markupsafe = "==2.1.5"
+twilio = "==7.7.0"
+unihandecode = "==0.81"
+
+# Google analytics and dependencies
 ckanext-googleanalytics = "==2.1.1"
 oauth2client = "==4.1.3"
 
 [dev-packages]
 beautifulsoup4 = ">=4.9.1"
+ckanapi = "*"
+cookiecutter = ">=1.7.3"
 coveralls = "*"
 docutils = ">=0.16"
 factory-boy = ">=2.12.0"
+flask-debugtoolbar = ">=0.11.0"
 freezegun = ">=1.1.0"
 ipdb = ">=0.13.7"
-responses = ">=0.10.*"
-pycodestyle = ">=2.5.0"
+mock = ">=2.0.0"
 pip-tools = ">=5.1.2"
-sphinx-rtd-theme = ">=0.4.3"
-cookiecutter = ">=1.7.3"
+pycodestyle = ">=2.5.0"
+pydevd-pycharm = "*"
+pyfakefs = ">=3.2"
 pytest = ">=6.2.2"
-pytest-split-tests = ">=1.0.9"
+pytest-ckan = "*"
 pytest-cov = ">=2.11.1"
 pytest-freezegun = ">=0.4.2"
 pytest-rerunfailures = ">=9.1.1"
-towncrier = ">=19.2.0"
-Flask-DebugToolbar = ">=0.11.0"
-Sphinx = ">=1.8.5"
-ckanapi = "*"
+pytest-split-tests = ">=1.0.9"
 rarfile = "*"
+responses = ">=0.10.*"
 slugify = "*"
-pydevd-pycharm = "*"
+Sphinx = ">=1.8.5"
+sphinx-rtd-theme = ">=0.4.3"
+towncrier = ">=19.2.0"
 twine = "*"
-mock = ">=2.0.0"
-pyfakefs = ">=3.2"
-pytest-ckan = "*"
 
 [requires]
 python_version = "3.10"
