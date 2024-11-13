@@ -13,3 +13,4 @@
 .vscode
 .pdbhistory
 *.code-workspace
+.python_history
