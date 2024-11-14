@@ -12,7 +12,7 @@ blinker = "==1.8.2"
 certifi = ">=2024.7.4"
 click = "==8.1.7"
 dominate = "==2.9.1"
-feedgen = "==1.0.0"  # Causing problems?
+feedgen = "==1.0.0"
 flask = "==3.0.3"
 flask-babel = "==4.0.0"
 flask-login = "==0.6.3"
@@ -43,25 +43,24 @@ sqlparse = "==0.5.0"
 typing-extensions = "==4.12.2"
 tzlocal = "==5.2"
 urllib3 = "==2.2.2"
-uwsgi = "==2.0.28"  # Causing problems?
+uwsgi = "==2.0.28"
 watchdog = "==4.0.1"
 webassets = "==2.0"
 werkzeug = {version = "==3.0.3", extras = ["watchdog"]}
-
 
 # Additional dependencies
 beaker = "==1.11.0"
 "repoze.who" = "==2.3"
 pyutilib = "==5.7.1"
 
-# CKAN packages # Causing problems?
-# ckanext-authz-service = {editable = true, ref = "3d52c13cce5152f1a75f89a21e88c319b6c2ea82", git = "https://github.com/fjelltopp/ckanext-authz-service"}
-# ckanext-blob-storage = {editable = true, ref = "eb8ea60cac30dee85bf65329e079f971ca8c90c4", git = "https://github.com/fjelltopp/ckanext-blob-storage"}
-# ckanext-pages = {editable = true, ref = "2a92bb874a82a2c008d5764ce290ae6950e428af", git = "https://github.com/ckan/ckanext-pages.git"}
-# ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}  
-# ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"} 
+# CKAN packages
+ckanext-authz-service = {editable = true, ref = "3d52c13cce5152f1a75f89a21e88c319b6c2ea82", git = "https://github.com/fjelltopp/ckanext-authz-service"}
+ckanext-blob-storage = {editable = true, ref = "eb8ea60cac30dee85bf65329e079f971ca8c90c4", git = "https://github.com/fjelltopp/ckanext-blob-storage"}
+ckanext-pages = {editable = true, ref = "2a92bb874a82a2c008d5764ce290ae6950e428af", git = "https://github.com/ckan/ckanext-pages.git"}
+ckanext-pdfview = {editable = true, ref="e4df796ceb440954d3927bdebe22a25d65e28216", git = "https://github.com/ckan/ckanext-pdfview.git"}  
+ckanext-scheming = {editable = true, git = "https://github.com/ckan/ckanext-scheming.git"} 
 
-# Git submodules # Causing problems?
+# Git submodules
 ckan = {path = "./ckan",editable = true}
 ckanext-dms = {path = "./ckanext-dms",editable = true}
 ckanext-short-urls = {path = "./ckanext-short-urls",editable = true}
@@ -85,8 +84,8 @@ markupsafe = "==2.1.5"
 itsdangerous = "==2.2.0"
 
 # Google analytics and dependencies
-ckanext-googleanalytics = "==2.1.1"    # Causing problems?
-oauth2client = "==4.1.3"   # Causing problems?
+ckanext-googleanalytics = "==2.1.1" 
+oauth2client = "==4.1.3"
 
 [dev-packages]
 beautifulsoup4 = ">=4.9.1"
@@ -101,7 +100,7 @@ ipdb = ">=0.13.7"
 mock = ">=2.0.0"
 pip-tools = ">=5.1.2"
 pycodestyle = ">=2.5.0"
-pydevd-pycharm = "*"  # Causing problems?
+pydevd-pycharm = "*"
 pyfakefs = ">=3.2"
 pytest = ">=6.2.2"
 pytest-ckan = "*"
