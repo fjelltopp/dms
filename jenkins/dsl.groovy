@@ -88,6 +88,12 @@ pipelineJob("DMS-deploy") {
             credentials('jenkins_github_ssh')
             name('origin')
           }
+          extensions {
+            submoduleOptions {
+              parentCredentials(true)
+              recursiveSubmodules(true)
+            }
+          }
           scriptPath('jenkinsfiles/dms_deploy.groovy')
           branch("remotes/origin/master")
         }
