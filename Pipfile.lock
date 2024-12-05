@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d5318201a41c17fd7534c348f6eb229dabfc61f82228821d539ba218be4672dc"
+            "sha256": "6b8980165a74825cab1b36d0085f72e504d7379147ba78c9e082c7a114bcc6ef"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -468,6 +468,11 @@
             "editable": true,
             "path": "./ckanext-dms"
         },
+        "ckanext-geoview": {
+            "editable": true,
+            "git": "https://github.com/ckan/ckanext-geoview.git",
+            "ref": "832ad5e9ceb3ef812b6878a53d7dc92e5b71debe"
+        },
         "ckanext-googleanalytics": {
             "hashes": [
                 "sha256:739c79f36a46c00127d2f8a04a2df0c1f44f721a455b22bc8ed69012e5feab10",
@@ -475,6 +480,11 @@
             ],
             "index": "pypi",
             "version": "==2.1.1"
+        },
+        "ckanext-officedocs": {
+            "editable": true,
+            "git": "https://github.com/jqnatividad/ckanext-officedocs.git",
+            "ref": "02141ac03672ac89805cb9f1513716f1aa02b82e"
         },
         "ckanext-pages": {
             "editable": true,
@@ -2796,15 +2806,6 @@
             ],
             "version": "==2.4.1"
         },
-        "babel": {
-            "hashes": [
-                "sha256:08706bdad8d0a3413266ab61bd6c34d0c28d6e1e7badf40a2cebe67644e2e1fb",
-                "sha256:8daf0e265d05768bc6c7a314cf1321e9a123afc328cc635c18622a2f30a04413"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==2.15.0"
-        },
         "backports.tarfile": {
             "hashes": [
                 "sha256:77e284d754527b01fb1e6fa8a1afe577858ebe4e9dad8919e34c862cb399bc34",
@@ -3062,6 +3063,13 @@
             "index": "pypi",
             "markers": "python_version >= '3.7'",
             "version": "==8.1.7"
+        },
+        "commonmark": {
+            "hashes": [
+                "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60",
+                "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"
+            ],
+            "version": "==0.9.1"
         },
         "cookiecutter": {
             "hashes": [
@@ -4136,15 +4144,6 @@
             "version": "==4.12.2"
         },
         "urllib3": {
-            "hashes": [
-                "sha256:a448b2f64d686155468037e1ace9f2d2199776e17f0a46610480d311f73e3472",
-                "sha256:dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
-            ],
-            "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==2.2.2"
-        },
-        "wcwidth": {
             "hashes": [
                 "sha256:3da69048e4540d84af32131829ff948f1e022c1c6bdb8d6102117aac784f6859",
                 "sha256:72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
