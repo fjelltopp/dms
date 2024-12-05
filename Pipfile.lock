@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d2a1cebab8d4cba635663b63dedfe769e1e6330ff59d42ca1443c38351371541"
+            "sha256": "6b8980165a74825cab1b36d0085f72e504d7379147ba78c9e082c7a114bcc6ef"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -480,6 +480,11 @@
             ],
             "index": "pypi",
             "version": "==2.1.1"
+        },
+        "ckanext-officedocs": {
+            "editable": true,
+            "git": "https://github.com/jqnatividad/ckanext-officedocs.git",
+            "ref": "02141ac03672ac89805cb9f1513716f1aa02b82e"
         },
         "ckanext-pages": {
             "editable": true,
