@@ -84,7 +84,7 @@ pipelineJob("DMS-deploy") {
             name('engine')
           }
           remote {
-            url('git@github.com:fjelltopp/fjelltopp-infrastructure.git')
+            url('git@github.com:fjelltopp/dms-infrastructure.git')
             credentials('jenkins_github_ssh')
             name('origin')
           }
