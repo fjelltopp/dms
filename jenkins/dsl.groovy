@@ -91,7 +91,7 @@ pipelineJob("DMS-deploy") {
           extensions {
             submoduleOptions {
               parentCredentials(true)
-              recursiveSubmodules(true)
+              recursive(true)
             }
           }
           scriptPath('jenkinsfiles/dms_deploy.groovy')
