@@ -5,90 +5,13 @@ import argparse
 
 log = logging.getLogger(__name__)
 
-# Script run at 14:07 on 3rd December 2024
+# This script removes all users that arn't signed up for notifications, or are in a specified list, or are sysadmins.
 
-sms_subscribers = [
-    "stephen-chu", 
-    "mike", 
-    "mprslot", 
-    "agus", 
-    "wiseman-banda", 
-    "masozi-lufingo-ngosi", 
-    "haxson-twaibu", 
-    "silvee", 
-    "jimson-banda", 
-    "dennis-kacheche", 
-    "tiwonge-chimpandule", 
-    "slotpulsa5000", 
-    "situs138", 
-    "gabriel-mwamlima"
-]
 org_members = [
     "relia-nkhata",
     "ray-244",
     "lmtambo-9172"
     "christian-neumann"
-]
-sysadmins = [
-    "christian-neumann",
-    "admin",
-    "mful",
-    "tomek",
-    "francis",
-    "michal-ful",
-    "jberry"
-]
-email_subscribers = [
-    'alonzoharvey',
-    'amon-dembo',
-    'andreas-jahn',
-    'andrew-mussa',
-    'andy', 
-    'berlington-munkhondya',
-    'beth-tippett-barr',
-    'cameronrhoades',
-    'charles-innocent-chinguwo',
-    'cherylsingh',
-    'ckhuwi',
-    'francis',
-    'cleowheeler',
-    'dennismontano',
-    'dennyhiggins',
-    'dollar-merah',
-    'dr-rabson-kachala',
-    'dumisani-ndhlovu',
-    'giay',
-    'gift-magawa',
-    'haywoodtatum',
-    'isaiah_sikamba',
-    'joe',
-    'jberry',
-    'kalibisajadi',
-    'kassandrastovall',
-    'kingsley-laija',
-    'limbani-bandah',
-    'lfrosario',
-    'tymless',
-    'maggie-phiri',
-    'michal-ful',
-    'nicodemus-chihana',
-    'patience-bwanali',
-    'pearldonovan',
-    'phillip-mtambo',
-    'pimpin4d-official',
-    'precious-chigete',
-    'ray-244',
-    'semu-bangelo',
-    'smith-vitumbiko-nthakomwa',
-    'sterner-moses-msamila',
-    'tmasina',
-    'tomek',
-    'wanangwa-mkandawire',
-    'william-kayira',
-    'mzumaraw',
-    'wyattwray',
-    'yamikani-matiya',
-    'zernanise-xavier'
 ]
 
 
@@ -108,11 +31,20 @@ def parse_args():
 
 def work(ckan_url, ckan_apikey, param):
     ckan = ckanapi.RemoteCKAN(ckan_url, apikey=ckan_apikey)
-    users = ckan.action.user_list(all_fields=False)
-    counter = 0
-    USERS_TO_KEEP = email_subscribers + sms_subscribers + sysadmins + org_members
+    users = ckan.action.user_list(all_fields=True, include_plugin_extras=True)
+    users_to_keep = []
     for user in users:
-        if user not in USERS_TO_KEEP:
+        if (
+            user['sysadmin'] or
+            user['activity_streams_email_notifications'] or
+            user['phonenumber'] or
+            user['name'] in org_members
+        ):
+            users_to_keep.append(user['name'])
+    log.info(f"{len(users_to_keep)} in total")
+    counter = 0
+    for user in users:
+        if user not in users_to_keep:
             log.info(f"Deleting user: {user}")
             counter = counter + 1
             ckan.action.user_delete(id=user)
