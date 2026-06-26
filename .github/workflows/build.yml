@@ -44,7 +44,7 @@ jobs:
         id: vars
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
-      # Build and push staging image on push to main
+      # Build and push staging image on push to master
       - name: Build and push staging image
         if: github.ref == 'refs/heads/master'
         uses: docker/build-push-action@v7
