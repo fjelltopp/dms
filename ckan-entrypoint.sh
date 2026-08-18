@@ -8,7 +8,7 @@ set -e
 : ${CKAN_SOLR_URL:=}
 # URL for redis (required unless linked to a container called 'redis')
 : ${CKAN_REDIS_URL:=}
-# URL for datapusher (required unless linked to a container called 'datapusher')
+# URL for datapusher (optional — datapusher has been removed from all envs)
 : ${CKAN_DATAPUSHER_URL:=}
 
 CONFIG="${CKAN_CONFIG}/production.ini"
@@ -61,10 +61,6 @@ fi
 
 if [ -z "$CKAN_REDIS_URL" ]; then
     abort "ERROR: no CKAN_REDIS_URL specified in docker-compose.yml"
-fi
-
-if [ -z "$CKAN_DATAPUSHER_URL" ]; then
-    abort "ERROR: no CKAN_DATAPUSHER_URL specified in docker-compose.yml"
 fi
 
 set_environment
